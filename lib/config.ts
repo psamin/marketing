@@ -2,8 +2,12 @@
 // never leak into the client bundle (only NEXT_PUBLIC_* is client-visible).
 
 export const config = {
-  // Client-visible (inlined at build): the embedded survey URL.
+  // Client-visible (inlined at build): the embedded survey weblink (iframe).
   surveyUrl: process.env.NEXT_PUBLIC_SM_SURVEY_URL || "",
+  // Client-visible: SurveyMonkey "Website" JS embed script URL, e.g.
+  // https://widget.surveymonkey.com/collect/website/js/XXXXX.js
+  // Use this when a plain weblink refuses to be iframed (X-Frame-Options).
+  surveyEmbedSrc: process.env.NEXT_PUBLIC_SM_EMBED_SRC || "",
 
   surveymonkey: {
     accessToken: process.env.SURVEYMONKEY_ACCESS_TOKEN || "",
@@ -29,8 +33,8 @@ export const config = {
 export const FIRM = {
   name: "Wayco",
   longName: "Wayco Injury Law",
-  phone: "(800) 555-0199",
-  phoneHref: "tel:+18005550199",
+  phone: "(516) 412-7361",
+  phoneHref: "tel:+15164127361",
   email: "intake@wayco.example",
   tagline: "Injured? You may be owed compensation.",
 } as const;

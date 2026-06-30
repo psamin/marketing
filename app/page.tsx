@@ -38,7 +38,7 @@ export default function HomePage() {
         <div className="container hero__grid">
           <div>
             <p className="eyebrow">Free case review · No fee unless we win</p>
-            <h1>Injured in an accident? Find out what your case is worth.</h1>
+            <h1>Injured in an accident? Find out <span className="accent-text">what your case is worth</span>.</h1>
             <p>
               If you were hurt because of someone else&apos;s negligence, you may be entitled to
               compensation for medical bills, lost wages, and pain and suffering. Wayco Injury Law

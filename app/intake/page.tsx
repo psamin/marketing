@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import SurveyMonkeyEmbed from "@/components/SurveyMonkeyEmbed";
 import { FIRM, config } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ function Info() {
 
 export default function IntakePage() {
   const surveyUrl = config.surveyUrl;
+  const embedSrc = config.surveyEmbedSrc;
 
   return (
     <>
@@ -57,7 +59,9 @@ export default function IntakePage() {
             </span>
           </div>
 
-          {surveyUrl ? (
+          {embedSrc ? (
+            <SurveyMonkeyEmbed src={embedSrc} />
+          ) : surveyUrl ? (
             <div className="embed-wrap">
               <iframe
                 className="embed-frame"
@@ -73,15 +77,14 @@ export default function IntakePage() {
                 <div className="ico" aria-hidden="true"><Info /></div>
                 <h2>Intake form not connected yet</h2>
                 <p className="lead" style={{ margin: "0 auto 18px" }}>
-                  The SurveyMonkey intake survey hasn&apos;t been linked. Set{" "}
-                  <code>NEXT_PUBLIC_SM_SURVEY_URL</code> to your survey&apos;s web-link URL
-                  (e.g. <code>https://www.surveymonkey.com/r/XXXXXXX</code>) and this page will
-                  embed the live form here.
+                  The SurveyMonkey intake survey hasn&apos;t been linked. Set either{" "}
+                  <code>NEXT_PUBLIC_SM_EMBED_SRC</code> (the SurveyMonkey &ldquo;Website&rdquo;
+                  embed script URL — recommended) or <code>NEXT_PUBLIC_SM_SURVEY_URL</code> (the
+                  survey weblink), and the live form appears here.
                 </p>
                 <p style={{ color: "var(--muted)" }}>
-                  Responses flow to{" "}
-                  <code>/api/surveymonkey/webhook</code>, which scores each lead and forwards it
-                  to the Wayco intake platform.
+                  Responses flow to <code>/api/surveymonkey/webhook</code>, which scores each
+                  lead and forwards it to the Wayco intake platform.
                 </p>
                 <div style={{ marginTop: 22 }}>
                   <a className="btn btn--primary" href={FIRM.phoneHref}>
