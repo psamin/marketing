@@ -73,16 +73,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TRUST BAR */}
-      <section className="trustbar">
-        <div className="container trustbar__grid">
-          <div><div className="num">$500M+</div><div className="label">Recovered for clients</div></div>
-          <div><div className="num">25,000+</div><div className="label">Families helped</div></div>
-          <div><div className="num">98%</div><div className="label">Client satisfaction</div></div>
-          <div><div className="num">24/7</div><div className="label">Free consultations</div></div>
-        </div>
-      </section>
-
       {/* PRACTICE AREAS */}
       <section className="section" id="practice-areas">
         <div className="container">
@@ -131,24 +121,6 @@ export default function HomePage() {
             <div className="card"><h3>Real attorneys</h3><p>Your case is handled by experienced injury lawyers, not a call center.</p></div>
             <div className="card"><h3>Confidential</h3><p>Your information is private and used only to evaluate and pursue your claim.</p></div>
           </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="section section--soft">
-        <div className="container">
-          <div className="center" style={{ marginBottom: 40 }}>
-            <p className="eyebrow">Client results</p>
-            <h2>Real people. Real outcomes.</h2>
-          </div>
-          <div className="grid grid--3">
-            <div className="quote"><p>&ldquo;After my car accident I didn&apos;t know where to turn. Wayco handled everything and got me far more than the insurance company first offered.&rdquo;</p><p className="who">— Maria T., car accident</p></div>
-            <div className="quote"><p>&ldquo;They were responsive, honest, and never made me feel like just another case. I&apos;d recommend them to anyone.&rdquo;</p><p className="who">— James R., workplace injury</p></div>
-            <div className="quote"><p>&ldquo;I paid nothing up front and they fought for my family the whole way. Truly grateful.&rdquo;</p><p className="who">— Denise K., wrongful death</p></div>
-          </div>
-          <p className="center" style={{ color: "var(--muted)", fontSize: "0.82rem", marginTop: 24 }}>
-            Testimonials are illustrative. Prior results do not guarantee a similar outcome.
-          </p>
         </div>
       </section>
 

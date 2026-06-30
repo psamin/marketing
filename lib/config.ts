@@ -14,6 +14,9 @@ export const config = {
     webhookSecret: process.env.SURVEYMONKEY_WEBHOOK_SECRET || "",
     apiBase: process.env.SURVEYMONKEY_API_BASE || "https://api.surveymonkey.com/v3",
     questionMap: process.env.SURVEYMONKEY_QUESTION_MAP || "",
+    // Numeric SurveyMonkey survey id (NOT the /r/ weblink slug). Needed for the
+    // pull/extract endpoints. Find it via GET /api/surveymonkey/survey?list=1.
+    surveyId: process.env.SURVEYMONKEY_SURVEY_ID || "",
   },
 
   wayco: {
@@ -22,6 +25,9 @@ export const config = {
   },
 
   leadsToken: process.env.LEADS_ACCESS_TOKEN || "",
+
+  // Optional webhook for new-lead notifications (Slack / Discord / generic JSON).
+  alertWebhookUrl: process.env.ALERT_WEBHOOK_URL || "",
 
   isProd: process.env.NODE_ENV === "production",
   // Inline test payloads to the webhook are only ever honored outside production.

@@ -38,12 +38,12 @@ export default function IntakePage() {
 
       <section className="page-head">
         <div className="container">
-          <p className="eyebrow" style={{ color: "var(--gold-500)" }}>Free &amp; confidential</p>
+          <p className="eyebrow">Free &amp; confidential</p>
           <h1>Start your free case review</h1>
           <p>
             Answer a few questions about your accident and injuries. There&apos;s no cost and no
             obligation, and your information is kept confidential. Prefer to talk? Call{" "}
-            <a href={FIRM.phoneHref} style={{ color: "#fff", fontWeight: 700 }}>{FIRM.phone}</a>.
+            <a href={FIRM.phoneHref} style={{ color: "var(--accent)", fontWeight: 700 }}>{FIRM.phone}</a>.
           </p>
         </div>
       </section>

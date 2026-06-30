@@ -9,6 +9,7 @@ import {
   verifyWebhookSignature,
 } from "@/lib/surveymonkey";
 import { forwardToWayco } from "@/lib/wayco";
+import { notifyNewLead } from "@/lib/notify";
 import { persistLead, readLeads } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
@@ -104,9 +105,10 @@ export async function POST(req: NextRequest) {
   });
   if (!mappingComplete) lead.qualification.flags.push("mapping_incomplete");
 
-  // --- deliver + persist (never throw) ---
+  // --- deliver + persist + notify (never throw) ---
   const wayco = await forwardToWayco(lead);
   const persisted = await persistLead(lead);
+  const notified = await notifyNewLead(lead);
 
   return NextResponse.json({
     ok: true,
@@ -114,7 +116,7 @@ export async function POST(req: NextRequest) {
     leadId: lead.leadId,
     qualification: lead.qualification,
     persisted,
-    integrations: { wayco },
+    integrations: { wayco, notify: notified },
   });
 }
 

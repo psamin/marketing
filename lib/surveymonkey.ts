@@ -189,3 +189,84 @@ export function buildRawIntake(
   const mappingComplete = Object.keys(map).length > 0;
   return { raw, unmapped, mappingComplete };
 }
+
+// ---------------------------------------------------------------------------
+// Pull / extraction API helpers (require SURVEYMONKEY_ACCESS_TOKEN).
+// ---------------------------------------------------------------------------
+
+export interface SMSurveyQuestion {
+  id: string;
+  heading: string;
+  family?: string;
+  subtype?: string;
+  choices?: { id: string; text: string }[];
+}
+
+function authHeaders(): HeadersInit {
+  const token = config.surveymonkey.accessToken;
+  if (!token) throw new Error("SURVEYMONKEY_ACCESS_TOKEN is not set");
+  return { Authorization: `Bearer ${token}`, Accept: "application/json" };
+}
+
+async function smGet<T>(path: string): Promise<T> {
+  const res = await fetch(`${config.surveymonkey.apiBase}${path}`, { headers: authHeaders() });
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    throw new Error(`SurveyMonkey API ${res.status}: ${body.slice(0, 300)}`);
+  }
+  return (await res.json()) as T;
+}
+
+/** List surveys on the account (to find the numeric survey id). */
+export async function listSurveys(): Promise<{ id: string; title: string }[]> {
+  const data = await smGet<{ data?: { id: string | number; title?: string }[] }>(
+    "/surveys?per_page=100"
+  );
+  return (data.data ?? []).map((s) => ({ id: String(s.id), title: s.title ?? "" }));
+}
+
+/** Fetch a survey's question structure — used to build the field->question map. */
+export async function fetchSurveyStructure(
+  surveyId: string
+): Promise<{ surveyId: string; title: string; questions: SMSurveyQuestion[] }> {
+  const data = await smGet<{
+    title?: string;
+    pages?: {
+      questions?: {
+        id: string | number;
+        family?: string;
+        subtype?: string;
+        headings?: { heading?: string }[];
+        answers?: { choices?: { id: string | number; text?: string }[] };
+      }[];
+    }[];
+  }>(`/surveys/${surveyId}/details`);
+
+  const questions: SMSurveyQuestion[] = [];
+  for (const page of data.pages ?? []) {
+    for (const q of page.questions ?? []) {
+      questions.push({
+        id: String(q.id),
+        heading: q.headings?.[0]?.heading ?? "",
+        family: q.family,
+        subtype: q.subtype,
+        choices: (q.answers?.choices ?? []).map((c) => ({ id: String(c.id), text: c.text ?? "" })),
+      });
+    }
+  }
+  return { surveyId, title: data.title ?? "", questions };
+}
+
+/** Pull all responses for a survey (paginated, simple text), newest first. */
+export async function fetchAllResponses(surveyId: string, max = 500): Promise<SMResponseDetails[]> {
+  const out: SMResponseDetails[] = [];
+  let path: string | null = `/surveys/${surveyId}/responses/bulk?per_page=100&simple=true&sort_order=DESC`;
+  while (path && out.length < max) {
+    const data: { data?: SMResponseDetails[]; links?: { next?: string } } = await smGet(path);
+    for (const r of data.data ?? []) out.push(r);
+    const next = data.links?.next;
+    // links.next is an absolute URL; strip the apiBase so smGet can re-append it.
+    path = next ? next.replace(config.surveymonkey.apiBase, "") : null;
+  }
+  return out.slice(0, max);
+}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { createHash, timingSafeEqual } from "crypto";
 import { config } from "@/lib/config";
+import { tokenMatches } from "@/lib/auth";
 import { Lead, Tier } from "@/lib/leads";
 import { readLeads } from "@/lib/store";
 
@@ -10,14 +10,6 @@ export const metadata: Metadata = {
   title: "Lead Queue — Wayco Intake (Internal)",
   robots: { index: false, follow: false },
 };
-
-// Constant-time token comparison (hash both to fixed length to avoid leaking length).
-function tokenMatches(provided: string, expected: string): boolean {
-  if (!expected) return false;
-  const a = createHash("sha256").update(provided).digest();
-  const b = createHash("sha256").update(expected).digest();
-  return timingSafeEqual(a, b);
-}
 
 const TIER_RANK: Record<Tier, number> = { hot: 0, warm: 1, cold: 2, disqualified: 3 };
 
@@ -94,8 +86,20 @@ export default async function LeadsPage({
     return acc;
   }, {});
 
+  const hot = counts.hot ?? 0;
+
   return (
     <main className="container leads-wrap">
+      {hot > 0 ? (
+        <div className="notif-banner" role="status">
+          <span className="notif-dot" aria-hidden="true" />
+          <span>
+            <strong>{hot} hot lead{hot === 1 ? "" : "s"}</strong> flagged for an immediate
+            callback. Speed-to-lead wins cases — call now.
+          </span>
+        </div>
+      ) : null}
+
       <div className="leads-head">
         <div>
           <h1 style={{ marginBottom: 4 }}>Lead queue</h1>
