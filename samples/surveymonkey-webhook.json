@@ -1,0 +1,67 @@
+{
+  "event_type": "response_completed",
+  "object_type": "response",
+  "object_id": "demo-response-0001",
+  "resources": {
+    "survey_id": "demo-survey-1",
+    "collector_id": "demo-collector-1"
+  },
+  "map": {
+    "firstName": "q_first",
+    "lastName": "q_last",
+    "email": "q_email",
+    "phone": "q_phone",
+    "preferredContact": "q_pref",
+    "bestTimeToCall": "q_besttime",
+    "incidentType": "q_type",
+    "incidentDate": "q_date",
+    "incidentState": "q_state",
+    "incidentLocation": "q_loc",
+    "atFault": "q_fault",
+    "policeReport": "q_police",
+    "description": "q_desc",
+    "injured": "q_injured",
+    "injuryDescription": "q_injdesc",
+    "medicalTreatment": "q_treat",
+    "treatmentProvider": "q_provider",
+    "ongoingTreatment": "q_ongoing",
+    "currentlyRepresented": "q_rep",
+    "insuranceInvolved": "q_ins",
+    "consentTcpa": "q_tcpa",
+    "consentDisclaimer": "q_disc"
+  },
+  "details": {
+    "id": "demo-response-0001",
+    "survey_id": "demo-survey-1",
+    "collector_id": "demo-collector-1",
+    "pages": [
+      {
+        "id": "p1",
+        "questions": [
+          { "id": "q_first", "answers": [{ "text": "Jordan" }] },
+          { "id": "q_last", "answers": [{ "text": "Rivera" }] },
+          { "id": "q_email", "answers": [{ "text": "jordan.rivera@example.com" }] },
+          { "id": "q_phone", "answers": [{ "text": "(312) 555-0142" }] },
+          { "id": "q_pref", "answers": [{ "text": "Phone call" }] },
+          { "id": "q_besttime", "answers": [{ "text": "Weekday afternoons" }] },
+          { "id": "q_type", "answers": [{ "text": "Car accident" }] },
+          { "id": "q_date", "answers": [{ "text": "2026-06-15" }] },
+          { "id": "q_state", "answers": [{ "text": "Illinois" }] },
+          { "id": "q_loc", "answers": [{ "text": "I-90 near Chicago, IL" }] },
+          { "id": "q_fault", "answers": [{ "text": "The other driver" }] },
+          { "id": "q_police", "answers": [{ "text": "Yes" }] },
+          { "id": "q_desc", "answers": [{ "text": "Rear-ended at a red light by a driver who was texting. My car was totaled." }] },
+          { "id": "q_injured", "answers": [{ "text": "Yes" }] },
+          { "id": "q_injdesc", "answers": [{ "text": "Whiplash and lower back pain" }] },
+          { "id": "q_treat", "answers": [{ "text": "Yes" }] },
+          { "id": "q_provider", "answers": [{ "text": "Northwestern Memorial ER + physical therapy" }] },
+          { "id": "q_ongoing", "answers": [{ "text": "Yes" }] },
+          { "id": "q_rep", "answers": [{ "text": "No" }] },
+          { "id": "q_ins", "answers": [{ "text": "Yes" }] },
+          { "id": "q_tcpa", "answers": [{ "text": "Yes, you may contact me" }] },
+          { "id": "q_disc", "answers": [{ "text": "I understand and agree" }] }
+        ]
+      }
+    ]
+  }
+}
