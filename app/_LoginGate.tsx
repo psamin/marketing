@@ -3,8 +3,7 @@
 import { useState } from "react";
 
 export default function LoginGate() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [code, setCode] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -16,13 +15,13 @@ export default function LoginGate() {
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ code }),
       });
       if (res.ok) {
         window.location.reload();
       } else {
         const data = await res.json().catch(() => ({}));
-        setError(data.error || "Invalid email or password.");
+        setError(data.error || "Invalid access code.");
       }
     } catch {
       setError("Something went wrong. Please try again.");
@@ -63,38 +62,26 @@ export default function LoginGate() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/wayco-logo.png" alt="Wayco" style={{ height: 34, width: "auto", display: "block" }} />
           </div>
-          <h1 className="wc-h">Sign in</h1>
-          <p className="wc-sub">This is a private Wayco preview. Please sign in to continue.</p>
+          <h1 className="wc-h">Preview access</h1>
+          <p className="wc-sub">This is a private Wayco preview. Enter the access code to continue.</p>
           <form onSubmit={onSubmit}>
             {error && <div className="wc-err">{error}</div>}
-            <label className="wc-label" htmlFor="email">
-              Email
+            <label className="wc-label" htmlFor="code">
+              Access code
             </label>
             <input
-              id="email"
-              className="wc-input"
-              type="email"
-              autoComplete="username"
-              placeholder="you@wayco.ai"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <label className="wc-label" htmlFor="password">
-              Password
-            </label>
-            <input
-              id="password"
+              id="code"
               className="wc-input"
               type="password"
-              autoComplete="current-password"
-              placeholder="••••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="off"
+              placeholder="Enter access code"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
               required
+              autoFocus
             />
             <button className="wc-btn" type="submit" disabled={loading}>
-              {loading ? "Signing in…" : "Sign in"}
+              {loading ? "Checking…" : "View preview"}
             </button>
           </form>
           <div className="wc-foot">Wayco · confidential preview</div>
