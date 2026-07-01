@@ -31,3 +31,8 @@ next-env.d.ts
 /data/dead-letter/
 .gstack/
 .vercel
+
+# tooling / local
+.agents/
+.claude/
+skills-lock.json

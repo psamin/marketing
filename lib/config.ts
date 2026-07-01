@@ -41,6 +41,24 @@ export const FIRM = {
   longName: "Wayco Injury Law",
   phone: "(516) 412-7361",
   phoneHref: "tel:+15164127361",
-  email: "intake@wayco.example",
+  email: "iqbol@wayco.ai",
   tagline: "Injured? You may be owed compensation.",
+} as const;
+
+// Attorney-advertising identity. This site is the advertisement of an
+// ATTORNEY-OWNED law firm (the PC) — NOT of Wayco Inc., which is the non-lawyer
+// technology/administrative-services company behind it. This split is the
+// CPOM / anti-kickback / fee-split firewall, stated publicly (Eve MSA §9.4 model).
+// ⚠️ [NEEDS COUNSEL] Every value below is a PLACEHOLDER. Do NOT publish until a
+// real licensed attorney/PC (admitted in each advertised state — NY, +GA for
+// Atlanta) is named, with a real principal law office address.
+export const LEGAL = {
+  // The law firm PC that is the advertiser and owns the representation.
+  firmEntity: "[LAW FIRM PC — e.g. \"Wayco Injury Law, P.C.\"]",
+  responsibleAttorney: "[RESPONSIBLE ATTORNEY NAME, ESQ.]",
+  officeAddress: "[PRINCIPAL LAW OFFICE ADDRESS]",
+  admittedStates: "[STATE(S) OF ADMISSION]",
+  // The non-lawyer company that provides technology + administrative services
+  // to the PC for a fixed, fair-market-value fee. Disclosed, never the advertiser.
+  techEntity: "Wayco Inc.",
 } as const;

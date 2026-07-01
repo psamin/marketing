@@ -54,11 +54,12 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <p className="disclaimer">
-          {t.footer.disclaimerLead}
-          {FIRM.longName}
-          {t.footer.disclaimerTail} © {year} {FIRM.longName}. {t.footer.rights}
-        </p>
+        <div className="footer__legal">
+          <span className="footer__adlabel">{t.footer.attorneyAdvertising}</span>
+          <span>© {year} {FIRM.longName}. {t.footer.rights}</span>
+          <Link href="/legal">{t.footer.legalNotices}</Link>
+          <Link href="/privacy">{t.footer.privacyLabel}</Link>
+        </div>
       </div>
     </footer>
   );

@@ -14,21 +14,11 @@ export default function SiteHeader() {
           <Image className="brand__logo" src="/wayco-logo.png" alt={FIRM.name} width={308} height={93} priority />
         </Link>
 
-        <nav className="nav" aria-label="Primary">
-          <Link href="/#practice-areas">{t.header.nav.practiceAreas}</Link>
-          <Link href="/#how-it-works">{t.header.nav.howItWorks}</Link>
-          <Link href="/#why-wayco">{t.header.nav.whyWayco}</Link>
-          <Link href="/#faq">{t.header.nav.faq}</Link>
-        </nav>
-
         <div className="header-cta">
           <a className="header-phone" href={FIRM.phoneHref}>
             {FIRM.phone}
             <span>{t.header.freeConsult}</span>
           </a>
-          <Link className="btn btn--primary" href="/intake">
-            {t.header.freeReview}
-          </Link>
           <LanguageToggle />
         </div>
       </div>
