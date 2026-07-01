@@ -19,7 +19,7 @@ const DICT = {
       },
       freeConsult: "Free consultation 24/7",
       freeReview: "Free case review",
-      faqs: "Supports",
+      faqs: "Support",
     },
     hero: {
       eyebrow: "Free case review · No fee unless we win",
@@ -73,7 +73,7 @@ const DICT = {
     },
     faq: {
       eyebrow: "Support",
-      title: "Supports",
+      title: "Support",
       items: [
         "It’s free to find out if you have a claim — a few quick questions, no obligation.",
         "You pay nothing up front. A fee applies only if Wayco wins your case, out of what’s recovered for you.",
@@ -175,7 +175,7 @@ const DICT = {
       },
       freeConsult: "Consulta gratis 24/7",
       freeReview: "Evaluación gratuita",
-      faqs: "Recursos",
+      faqs: "Ayuda",
     },
     hero: {
       eyebrow: "Evaluación gratuita del caso · Sin honorarios a menos que ganemos",
@@ -228,8 +228,8 @@ const DICT = {
       ],
     },
     faq: {
-      eyebrow: "Recursos",
-      title: "Recursos",
+      eyebrow: "Ayuda",
+      title: "Ayuda",
       items: [
         "Averiguar si tiene un reclamo es gratis — unas preguntas rápidas, sin compromiso.",
         "No paga nada por adelantado. Solo hay honorarios si Wayco gana su caso, y salen de lo que se recupere para usted.",
