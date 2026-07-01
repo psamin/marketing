@@ -1,21 +1,26 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
 import { FIRM } from "@/lib/config";
+import { useLang } from "@/lib/i18n";
 
 export default function SiteFooter() {
+  const { t } = useLang();
   const year = 2026;
+  const practiceHrefs = ["/#practice-areas", "/#practice-areas", "/#practice-areas", "/#practice-areas", "/#practice-areas"];
+  const startHrefs = ["/intake", "/#how-it-works", "/#faq", FIRM.phoneHref];
+
   return (
     <footer className="site-footer">
       <div className="container">
         <div className="footer__grid">
           <div className="footer__brand">
             <div className="brand">
-              <span className="brand__mark">{FIRM.name}</span>
-              <span className="brand__sub">Injury Law</span>
+              <Image className="brand__logo" src="/wayco-logo.png" alt={FIRM.name} width={308} height={93} />
+              <span className="brand__sub">{t.footer.injuryLaw}</span>
             </div>
-            <p style={{ marginTop: 14, maxWidth: "38ch" }}>
-              {FIRM.tagline} Free, confidential case reviews for accident and injury victims
-              nationwide. No fee unless we win.
-            </p>
+            <p style={{ marginTop: 14, maxWidth: "38ch" }}>{t.footer.tagline}</p>
             <p>
               <a href={FIRM.phoneHref}>{FIRM.phone}</a> &nbsp;·&nbsp;{" "}
               <a href={`mailto:${FIRM.email}`}>{FIRM.email}</a>
@@ -23,35 +28,36 @@ export default function SiteFooter() {
           </div>
 
           <div className="footer__col">
-            <h4>Practice areas</h4>
+            <h4>{t.footer.practiceHead}</h4>
             <ul>
-              <li><Link href="/#practice-areas">Car accidents</Link></li>
-              <li><Link href="/#practice-areas">Slip &amp; fall</Link></li>
-              <li><Link href="/#practice-areas">Medical malpractice</Link></li>
-              <li><Link href="/#practice-areas">Workplace injury</Link></li>
-              <li><Link href="/#practice-areas">Wrongful death</Link></li>
+              {t.footer.practiceLinks.map((label, i) => (
+                <li key={label}>
+                  <Link href={practiceHrefs[i]}>{label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="footer__col">
-            <h4>Get started</h4>
+            <h4>{t.footer.startHead}</h4>
             <ul>
-              <li><Link href="/intake">Start your case review</Link></li>
-              <li><Link href="/#how-it-works">How it works</Link></li>
-              <li><Link href="/#faq">FAQ</Link></li>
-              <li><a href={FIRM.phoneHref}>Call us</a></li>
+              {t.footer.startLinks.map((label, i) => {
+                const href = startHrefs[i];
+                const isExternal = href.startsWith("tel:") || href.startsWith("mailto:");
+                return (
+                  <li key={label}>
+                    {isExternal ? <a href={href}>{label}</a> : <Link href={href}>{label}</Link>}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
 
         <p className="disclaimer">
-          Attorney Advertising. The information on this website is for general informational
-          purposes only and is not legal advice. No attorney-client relationship is created by
-          using this site or by submitting an intake form; an attorney-client relationship is
-          formed only by a signed written agreement. Prior results do not guarantee a similar
-          outcome. Contacting {FIRM.longName} does not obligate you to retain the firm, and the
-          firm does not guarantee acceptance of any case. If you are facing a deadline (statute of
-          limitations), do not delay seeking counsel. © {year} {FIRM.longName}. All rights reserved.
+          {t.footer.disclaimerLead}
+          {FIRM.longName}
+          {t.footer.disclaimerTail} © {year} {FIRM.longName}. {t.footer.rights}
         </p>
       </div>
     </footer>
