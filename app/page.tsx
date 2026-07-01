@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import IntakeWidget from "@/components/IntakeWidget";
@@ -32,6 +33,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <div className="home-faq">
+        <div className="container">
+          <Link className="home-faq__link" href="/faq">
+            {t.faq.title} →
+          </Link>
+        </div>
+      </div>
 
       <SiteFooter />
     </>
