@@ -17,7 +17,7 @@ const DICT = {
         whyWayco: "Why Wayco",
         faq: "FAQ",
       },
-      freeConsult: "Free consultation 24/7",
+      freeConsult: "Reach us any time",
       freeReview: "Free case review",
       faqs: "Support",
     },
@@ -171,9 +171,9 @@ const DICT = {
         whyWayco: "Por qué Wayco",
         faq: "Preguntas",
       },
-      freeConsult: "Consulta gratis 24/7",
+      freeConsult: "Comuníquese en cualquier momento",
       freeReview: "Evaluación gratuita",
-      faqs: "Ayuda",
+      faqs: "Soporte",
     },
     hero: {
       eyebrow: "Evaluación gratuita del caso · Sin honorarios a menos que ganemos",
@@ -226,8 +226,8 @@ const DICT = {
       ],
     },
     faq: {
-      eyebrow: "Ayuda",
-      title: "Ayuda",
+      eyebrow: "Soporte",
+      title: "Soporte",
       items: [
         "Averiguar si tiene un reclamo es gratis — unas preguntas rápidas, sin compromiso.",
         "No paga nada por adelantado. Solo hay honorarios si Wayco gana su caso, y salen de lo que se recupere para usted.",
