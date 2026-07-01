@@ -14,7 +14,7 @@ export function isPublicPath(pathname: string): boolean {
   return (
     pathname === "/" ||
     PUBLIC_FUNNEL.some((p) => underPrefix(pathname, p)) ||
-    underPrefix(pathname, "/faq") ||
+    underPrefix(pathname, "/supports") ||
     underPrefix(pathname, "/privacy") ||
     underPrefix(pathname, "/legal") ||
     underPrefix(pathname, "/login") ||

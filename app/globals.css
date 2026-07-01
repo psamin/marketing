@@ -294,6 +294,10 @@ a { color: var(--accent); text-decoration: none; }
 .home-faq { padding: 0 0 72px; text-align: center; }
 .home-faq__link { font-family: var(--serif); font-size: 1.15rem; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; transition: color .15s ease, border-color .15s ease; }
 .home-faq__link:hover { color: var(--text); border-color: var(--text); }
+.support-list { list-style: none; margin: 0 auto; padding: 0; max-width: 640px; }
+.support-list li { position: relative; padding: 20px 0 20px 34px; border-bottom: 1px solid var(--line); color: var(--text); font-size: 1.06rem; line-height: 1.6; }
+.support-list li:last-child { border-bottom: none; }
+.support-list li::before { content: ""; position: absolute; left: 4px; top: 27px; width: 8px; height: 8px; border-radius: 999px; background: var(--accent); }
 
 @media (max-width: 860px) {
   .landing { padding: 40px 0 56px; }

@@ -36,7 +36,7 @@ export default function HomePage() {
 
       <div className="home-faq">
         <div className="container">
-          <Link className="home-faq__link" href="/faq">
+          <Link className="home-faq__link" href="/supports">
             {t.faq.title} →
           </Link>
         </div>

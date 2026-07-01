@@ -7,7 +7,7 @@ describe("login-gate path logic (regression)", () => {
     "/intake",
     "/intake/step-2",
     "/thank-you",
-    "/faq",
+    "/supports",
     "/privacy",
     "/legal",
     "/login",
