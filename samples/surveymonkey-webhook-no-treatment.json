@@ -1,0 +1,67 @@
+{
+  "event_type": "response_completed",
+  "object_type": "response",
+  "object_id": "demo-response-0002",
+  "resources": {
+    "survey_id": "demo-survey-1",
+    "collector_id": "demo-collector-1"
+  },
+  "map": {
+    "firstName": "q_first",
+    "lastName": "q_last",
+    "email": "q_email",
+    "phone": "q_phone",
+    "preferredContact": "q_pref",
+    "bestTimeToCall": "q_besttime",
+    "incidentType": "q_type",
+    "incidentDate": "q_date",
+    "incidentState": "q_state",
+    "incidentLocation": "q_loc",
+    "atFault": "q_fault",
+    "policeReport": "q_police",
+    "description": "q_desc",
+    "injured": "q_injured",
+    "injuryDescription": "q_injdesc",
+    "medicalTreatment": "q_treat",
+    "treatmentProvider": "q_provider",
+    "ongoingTreatment": "q_ongoing",
+    "currentlyRepresented": "q_rep",
+    "insuranceInvolved": "q_ins",
+    "consentTcpa": "q_tcpa",
+    "consentDisclaimer": "q_disc"
+  },
+  "details": {
+    "id": "demo-response-0002",
+    "survey_id": "demo-survey-1",
+    "collector_id": "demo-collector-1",
+    "pages": [
+      {
+        "id": "p1",
+        "questions": [
+          { "id": "q_first", "answers": [{ "text": "Casey" }] },
+          { "id": "q_last", "answers": [{ "text": "Nguyen" }] },
+          { "id": "q_email", "answers": [{ "text": "casey.nguyen@example.com" }] },
+          { "id": "q_phone", "answers": [{ "text": "(404) 555-0198" }] },
+          { "id": "q_pref", "answers": [{ "text": "Text" }] },
+          { "id": "q_besttime", "answers": [{ "text": "Evenings" }] },
+          { "id": "q_type", "answers": [{ "text": "Slip and fall" }] },
+          { "id": "q_date", "answers": [{ "text": "2026-06-28" }] },
+          { "id": "q_state", "answers": [{ "text": "Georgia" }] },
+          { "id": "q_loc", "answers": [{ "text": "Grocery store parking lot, Atlanta, GA" }] },
+          { "id": "q_fault", "answers": [{ "text": "The other party" }] },
+          { "id": "q_police", "answers": [{ "text": "No" }] },
+          { "id": "q_desc", "answers": [{ "text": "Slipped on an unmarked wet floor near the entrance." }] },
+          { "id": "q_injured", "answers": [{ "text": "Yes" }] },
+          { "id": "q_injdesc", "answers": [{ "text": "Twisted ankle and wrist pain, hasn't seen anyone yet" }] },
+          { "id": "q_treat", "answers": [{ "text": "No" }] },
+          { "id": "q_provider", "answers": [{ "text": "" }] },
+          { "id": "q_ongoing", "answers": [{ "text": "No" }] },
+          { "id": "q_rep", "answers": [{ "text": "No" }] },
+          { "id": "q_ins", "answers": [{ "text": "No" }] },
+          { "id": "q_tcpa", "answers": [{ "text": "Yes, you may contact me" }] },
+          { "id": "q_disc", "answers": [{ "text": "I understand and agree" }] }
+        ]
+      }
+    ]
+  }
+}
