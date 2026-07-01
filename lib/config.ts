@@ -17,6 +17,10 @@ export const config = {
     // Numeric SurveyMonkey survey id (NOT the /r/ weblink slug). Needed for the
     // pull/extract endpoints. Find it via GET /api/surveymonkey/survey?list=1.
     surveyId: process.env.SURVEYMONKEY_SURVEY_ID || "",
+    // Collector id + field->question_id map for WRITING responses (the custom
+    // intake widget feeding SurveyMonkey). Mock/skipped until all are set.
+    collectorId: process.env.SURVEYMONKEY_COLLECTOR_ID || "",
+    submitMap: process.env.SURVEYMONKEY_SUBMIT_MAP || "",
   },
 
   wayco: {

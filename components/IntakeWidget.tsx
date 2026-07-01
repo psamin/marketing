@@ -19,8 +19,13 @@ const EMPTY: Data = {
   firstName: "", phone: "", email: "",
 };
 
+// Stable, language-independent keys stored for each choice (parallel to the
+// localized label arrays in i18n). The server maps these, never the labels.
+const TYPE_KEYS = ["auto_truck", "slip_fall", "med_mal", "workplace", "product", "other"];
+const TREAT_KEYS = ["yes", "not_yet", "no"];
+
 export default function IntakeWidget() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const w = t.intakeWidget;
   const TOTAL = 3;
 
@@ -51,7 +56,7 @@ export default function IntakeWidget() {
       await fetch("/api/intake", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, consent, lang }),
       });
     } catch {
       /* fire-and-forget; still confirm to the user */
@@ -93,17 +98,20 @@ export default function IntakeWidget() {
         <fieldset className="iw__step-body">
           <legend className="iw__q">{w.q1Title}</legend>
           <div className="iw__choices">
-            {w.q1Types.map((label) => (
-              <button
-                type="button"
-                key={label}
-                className={`iw__choice${data.type === label ? " is-on" : ""}`}
-                aria-pressed={data.type === label}
-                onClick={() => { set("type", label); setError(""); }}
-              >
-                {label}
-              </button>
-            ))}
+            {w.q1Types.map((label, i) => {
+              const key = TYPE_KEYS[i] ?? "other";
+              return (
+                <button
+                  type="button"
+                  key={key}
+                  className={`iw__choice${data.type === key ? " is-on" : ""}`}
+                  aria-pressed={data.type === key}
+                  onClick={() => { set("type", key); setError(""); }}
+                >
+                  {label}
+                </button>
+              );
+            })}
           </div>
           <label className="iw__field">
             <span>{w.dateLabel}</span>
@@ -132,17 +140,20 @@ export default function IntakeWidget() {
           <div className="iw__field">
             <span>{w.treatingLabel}</span>
             <div className="iw__choices iw__choices--row">
-              {w.opts.map((o) => (
-                <button
-                  type="button"
-                  key={o}
-                  className={`iw__choice${data.treating === o ? " is-on" : ""}`}
-                  aria-pressed={data.treating === o}
-                  onClick={() => set("treating", o)}
-                >
-                  {o}
-                </button>
-              ))}
+              {w.opts.map((o, i) => {
+                const key = TREAT_KEYS[i] ?? "no";
+                return (
+                  <button
+                    type="button"
+                    key={key}
+                    className={`iw__choice${data.treating === key ? " is-on" : ""}`}
+                    aria-pressed={data.treating === key}
+                    onClick={() => set("treating", key)}
+                  >
+                    {o}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </fieldset>

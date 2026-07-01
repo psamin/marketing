@@ -58,9 +58,9 @@ export interface SMWebhookEvent {
  */
 export function verifyWebhookSignature(
   rawBody: string,
-  signatureHeader: string | null
+  signatureHeader: string | null,
+  secret: string = config.surveymonkey.webhookSecret
 ): boolean | null {
-  const secret = config.surveymonkey.webhookSecret;
   if (!secret) return null;
   if (!signatureHeader) return false;
   const expected = createHmac("sha256", secret).update(rawBody, "utf8").digest("hex");
@@ -269,4 +269,57 @@ export async function fetchAllResponses(surveyId: string, max = 500): Promise<SM
     path = next ? next.replace(config.surveymonkey.apiBase, "") : null;
   }
   return out.slice(0, max);
+}
+
+export interface RecordResult {
+  ok: boolean;
+  mode: "live" | "mock";
+  reference?: string;
+  detail?: string;
+}
+
+/**
+ * Record a response into SurveyMonkey (the custom intake widget feeding SM as
+ * system-of-record). `answers` is keyed by canonical field; SURVEYMONKEY_SUBMIT_MAP
+ * (field -> question_id) decides which land in the survey. Text answers only —
+ * choice questions need choice_ids and should map to open-text fields. Requires
+ * token + collector id + submit map; mock-logs otherwise. Never throws.
+ */
+export async function recordResponse(answers: Record<string, string>): Promise<RecordResult> {
+  const token = config.surveymonkey.accessToken;
+  const collectorId = config.surveymonkey.collectorId;
+  const rawMap = config.surveymonkey.submitMap;
+
+  if (!token || !collectorId || !rawMap) {
+    console.log("[surveymonkey] (mock) would record response:", JSON.stringify(answers).slice(0, 300));
+    return { ok: true, mode: "mock" };
+  }
+
+  let map: Record<string, string>;
+  try {
+    map = JSON.parse(rawMap);
+  } catch {
+    return { ok: false, mode: "live", detail: "SURVEYMONKEY_SUBMIT_MAP is not valid JSON" };
+  }
+
+  const questions = Object.entries(answers)
+    .filter(([field, val]) => map[field] && String(val).trim())
+    .map(([field, val]) => ({ id: map[field], answers: [{ text: String(val) }] }));
+  if (!questions.length) return { ok: false, mode: "live", detail: "no mapped answers to submit" };
+
+  try {
+    const res = await fetch(`${config.surveymonkey.apiBase}/collectors/${collectorId}/responses`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ pages: [{ questions }] }),
+    });
+    if (!res.ok) {
+      const b = await res.text().catch(() => "");
+      return { ok: false, mode: "live", detail: `HTTP ${res.status}: ${b.slice(0, 200)}` };
+    }
+    const data = (await res.json().catch(() => ({}))) as { id?: string };
+    return { ok: true, mode: "live", reference: data.id };
+  } catch (err) {
+    return { ok: false, mode: "live", detail: (err as Error).message };
+  }
 }

@@ -256,6 +256,7 @@ export interface NormalizeOptions {
   responseId?: string;
   collectorId?: string;
   mode: "live" | "test";
+  source?: string;
   userAgent?: string;
   ip?: string;
   unmappedAnswers?: Record<string, string[]>;
@@ -269,7 +270,7 @@ export function normalizeLead(raw: RawIntake, opts: NormalizeOptions): Lead {
 
   return {
     leadId: randomUUID(),
-    source: "wayco-web-intake/surveymonkey",
+    source: opts.source ?? "wayco-web-intake/surveymonkey",
     submittedAt: now.toISOString(),
     status: "new",
     claimant: {
