@@ -4,11 +4,9 @@ import type { NextRequest } from "next/server";
 const AUTH_COOKIE = "wayco_auth";
 const AUTH_TOKEN = process.env.AUTH_TOKEN ?? "wc_ok_2026";
 
-// Inlined (NOT imported) so the Edge middleware bundle stays self-contained —
-// importing a sibling module makes Next inject a Node shim that references
-// __dirname, which crashes the Edge runtime. Keep this in sync with the
-// unit-tested copy in lib/auth-paths.ts (same pre-launch gate: whole site behind
-// login; only the login flow + public APIs are open).
+// Inlined (NOT imported) so the Edge middleware bundle stays self-contained.
+// Keep in sync with the unit-tested copy in lib/auth-paths.ts (pre-launch gate:
+// whole site behind login; only the login flow + public APIs are open).
 function underPrefix(pathname: string, prefix: string): boolean {
   return pathname === prefix || pathname.startsWith(prefix + "/");
 }
@@ -24,18 +22,10 @@ function isPublicPath(pathname: string): boolean {
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Pass the path to the root layout so any server-side gate can also exempt
-  // the public funnel (must not re-gate ad-traffic pages).
-  const requestHeaders = new Headers(req.headers);
-  requestHeaders.set("x-pathname", pathname);
-  const pass = () => NextResponse.next({ request: { headers: requestHeaders } });
-
-  // Public funnel + policy pages + login flow + public APIs stay open;
-  // everything else (e.g. /leads) sits behind the login gate.
-  if (isPublicPath(pathname)) return pass();
+  if (isPublicPath(pathname)) return NextResponse.next();
 
   const token = req.cookies.get(AUTH_COOKIE)?.value;
-  if (token === AUTH_TOKEN) return pass();
+  if (token === AUTH_TOKEN) return NextResponse.next();
 
   const url = req.nextUrl.clone();
   url.pathname = "/login";
