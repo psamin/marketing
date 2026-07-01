@@ -240,7 +240,10 @@ a { color: var(--accent); text-decoration: none; }
 .footer__adlabel { text-transform: uppercase; letter-spacing: 0.07em; font-size: 0.68rem; font-weight: 600; color: var(--muted); }
 .legal-page { max-width: 68ch; padding: 56px 0 88px; }
 .legal-page h1 { margin: 6px 0 22px; }
+.legal-page h2 { font-family: var(--serif); font-weight: 400; font-size: 1.15rem; line-height: 1.2; margin: 32px 0 12px; color: var(--text); }
 .legal-page p { color: var(--muted); font-size: 0.92rem; line-height: 1.7; margin: 0 0 18px; }
+.legal-page ul { margin: 0 0 18px; padding-left: 20px; color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+.legal-page li { margin-bottom: 8px; }
 .legal-page .legal-meta { color: var(--muted-2); font-size: 0.8rem; }
 .legal-page .legal-links { display: flex; gap: 20px; margin-top: 8px; }
 .legal-page .legal-links a { color: var(--muted); border-bottom: 1px solid var(--line-strong); }

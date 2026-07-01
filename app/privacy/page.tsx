@@ -7,57 +7,88 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-// ⚠️ [NEEDS COUNSEL / TO BE DRAFTED BY COUNSEL] This is a SCAFFOLD only.
-// Do not publish until reviewed by counsel and the LEGAL placeholders are real.
-// Structure follows the Eve two-regime split: the law firm PC is the controller
-// of client-intake/matter data; Wayco Inc. (tech/admin vendor) processes data
-// only to provide services to the firm, for fixed FMV fees.
+// ⚠️ [NEEDS COUNSEL] Draft modeled on real, comparable policies (LegalZoom's
+// "not a law firm" data posture + service-provider sharing + CCPA framing) and
+// the two-regime split (the law firm PC is the controller of intake/matter data;
+// Wayco Inc. is a service provider/processor). Do NOT publish until counsel
+// reviews it and the LEGAL placeholders are real.
 export default function PrivacyPage() {
   return (
-    <main className="container" style={{ maxWidth: "72ch", padding: "48px 20px 80px" }}>
-      <p style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: ".08em", color: "#888" }}>
-        Attorney Advertising
-      </p>
+    <main className="container legal-page">
+      <p className="footer__adlabel">Attorney Advertising</p>
       <h1>Privacy Policy</h1>
-      <p style={{ color: "#a33" }}>
-        <strong>DRAFT — pending counsel review. Not yet in effect.</strong>
+      <p className="legal-meta" style={{ color: "#b8402c" }}>
+        <strong>DRAFT — pending counsel review. Not yet in effect. Effective date: [TO BE SET].</strong>
       </p>
 
-      <h2>Who we are</h2>
+      <h2>1. Who this policy covers</h2>
       <p>
         This site advertises <strong>{LEGAL.firmEntity}</strong> (the “Firm”), an
         independent law firm operating under the trade name {FIRM.longName}.{" "}
-        {LEGAL.techEntity} is a technology and administrative-services company that
-        provides services to the Firm for fixed, fair-market-value fees; it is not a
-        law firm and does not provide legal services or direct legal decisions. As to
-        client-intake and matter information, the <strong>Firm is the controller</strong>;{" "}
-        {LEGAL.techEntity} acts only as a service provider/processor on the Firm’s behalf.
+        {LEGAL.techEntity} is <strong>not a law firm</strong> and does not provide
+        legal advice or legal services, except as provided through its affiliated
+        law firm; it is a technology and administrative-services company that
+        provides services to the Firm for fixed, fair-market-value fees. As to your
+        intake and case information, the <strong>Firm is the controller</strong> of
+        that data; {LEGAL.techEntity} acts only as a <strong>service provider</strong>{" "}
+        on the Firm’s behalf and does not use it for its own purposes.
       </p>
 
-      <h2>Information we collect</h2>
-      <p>[TO BE DRAFTED BY COUNSEL] Contact details you submit (name, phone, email),
-        information about your potential claim, and standard technical/analytics data
-        (IP address, device, pages viewed).</p>
+      <h2>2. Information we collect</h2>
+      <ul>
+        <li><strong>Information you give us:</strong> your name, phone number, email, and the details you provide about your potential claim (what happened, injuries, dates, whether you are treating).</li>
+        <li><strong>Technical information:</strong> IP address, device and browser type, and pages viewed, collected automatically for security and analytics.</li>
+      </ul>
 
-      <h2>How we use it & phone/text/email contact (TCPA)</h2>
-      <p>To evaluate your potential claim and contact you about it. By submitting the
-        intake form you consent to be contacted at the number/email provided, including
-        by automated dialing, prerecorded/AI voice, and text message. Consent is not a
-        condition of any legal service; message/data rates may apply; reply STOP to opt
-        out of texts. [Confirm express-written-consent wording with counsel.]</p>
+      <h2>3. How we use it, and phone/text/email contact (TCPA)</h2>
+      <p>
+        We use your information to evaluate your potential claim and to contact you
+        about it. By submitting the intake form and checking the consent box, you
+        agree to be contacted at the number and email you provide, including by
+        automated dialing, prerecorded or AI voice, and text message.{" "}
+        <strong>Consent is not a condition of any legal service.</strong> Message and
+        data rates may apply; reply STOP to opt out of texts at any time.
+        [Confirm express-written-consent wording and record-keeping with counsel.]
+      </p>
 
-      <h2>Sharing & service providers</h2>
-      <p>[TO BE DRAFTED BY COUNSEL] Named subprocessors, and confirmation that data is
-        not sold. If any AI is used for intake, state the data-handling and
-        no-model-training posture here.</p>
+      <h2>4. How we share it</h2>
+      <p>
+        We share your information with the Firm’s attorneys and staff evaluating your
+        claim, and with service providers that help us operate (hosting, communications,
+        analytics) — who are not permitted to use it for any purpose other than
+        providing services to us or to you. <strong>We do not sell your personal
+        information for money.</strong> Some routine online activity (e.g., analytics or
+        advertising cookies) may be considered a “sale” or “share” under certain state
+        laws; where it is, you may opt out. [Insert named subprocessors + cookie
+        disclosures — counsel to confirm.]
+      </p>
 
-      <h2>Data retention, your rights, and contact</h2>
-      <p>[TO BE DRAFTED BY COUNSEL] Retention periods; access/deletion/opt-out rights
-        (CCPA and other applicable law). Questions: <a href={`mailto:${FIRM.email}`}>{FIRM.email}</a>,{" "}
-        <a href={FIRM.phoneHref}>{FIRM.phone}</a>.</p>
+      <h2>5. AI and your data</h2>
+      <p>
+        Intake may be AI-assisted. Your intake information is used to evaluate and
+        route your claim; it is <strong>not used to train any general-purpose or
+        third-party foundation model.</strong> [Confirm the exact no-training covenant
+        and any model/vendor terms with counsel.]
+      </p>
 
-      <p style={{ marginTop: 40 }}>
-        <Link href="/">← Back to home</Link>
+      <h2>6. Data retention</h2>
+      <p>[TO BE DRAFTED BY COUNSEL] How long intake and matter data is retained,
+        including any bar-rule advertising/solicitation retention requirements.</p>
+
+      <h2>7. Your rights</h2>
+      <p>[TO BE DRAFTED BY COUNSEL] Access, correction, deletion, and opt-out rights
+        under CCPA/CPRA and other applicable state laws, and how to exercise them.</p>
+
+      <h2>8. Contact</h2>
+      <p>
+        Questions about this policy or your information:{" "}
+        <a href={`mailto:${FIRM.email}`}>{FIRM.email}</a> ·{" "}
+        <a href={FIRM.phoneHref}>{FIRM.phone}</a>.
+      </p>
+
+      <p className="legal-links" style={{ marginTop: 32 }}>
+        <Link href="/">← Home</Link>
+        <Link href="/legal">Legal Notices</Link>
       </p>
     </main>
   );
