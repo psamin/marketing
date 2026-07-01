@@ -81,7 +81,6 @@ const DICT = {
         "Deadlines to file are set by your state and are often shorter than people expect.",
         "No one can promise an amount. What you may recover depends on your injuries, treatment, lost income, and who was at fault.",
         "95% of personal injury cases are settled pre-litigation.",
-        "Wayco Injury Law is the law firm handling your case. Wayco Inc. is the technology company behind it — not a law firm, and it doesn’t give legal advice.",
       ],
     },
     finalCta: {
@@ -236,7 +235,6 @@ const DICT = {
         "Los plazos para presentar los fija su estado y suelen ser más cortos de lo que la gente cree.",
         "Nadie puede prometer una cantidad. Lo que podría recuperar depende de sus lesiones, tratamiento, ingresos perdidos y de quién tuvo la culpa.",
         "El 95% de los casos de lesiones personales se resuelven antes de litigar.",
-        "Wayco Injury Law es la firma de abogados que maneja su caso. Wayco Inc. es la empresa de tecnología detrás — no es una firma de abogados y no da asesoría legal.",
       ],
     },
     finalCta: {
