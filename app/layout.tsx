@@ -13,11 +13,11 @@ const AUTH_COOKIE = "wayco_auth";
 const AUTH_TOKEN = process.env.AUTH_TOKEN ?? "wc_ok_2026";
 
 export const metadata: Metadata = {
-  title: "Wayco Injury Law — Free Case Review for Accident & Injury Victims",
+  title: "Wayco",
   description:
-    "Injured in an accident? Get a free, confidential case review from Wayco Injury Law. No fee unless we win. Start your claim online in minutes.",
+    "Injured in an accident? Get a free, confidential case review from Wayco. No fee unless we win. Start your claim online in minutes.",
   openGraph: {
-    title: "Wayco Injury Law — Free Case Review",
+    title: "Wayco",
     description:
       "Injured in an accident? Free, confidential case review. No fee unless we win.",
     type: "website",

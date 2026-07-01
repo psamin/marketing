@@ -3,9 +3,9 @@ import IntakeContent from "@/components/IntakeContent";
 import { config } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Start Your Free Case Review — Wayco Injury Law",
+  title: "Start Your Free Case Review — Wayco",
   description:
-    "Tell us what happened. Complete Wayco Injury Law's confidential intake form to start your free, no-obligation case review.",
+    "Tell us what happened. Complete Wayco's confidential intake form to start your free, no-obligation case review.",
   robots: { index: false, follow: true },
 };
 

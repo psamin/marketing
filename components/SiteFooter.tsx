@@ -9,7 +9,7 @@ export default function SiteFooter() {
   const { t } = useLang();
   const year = 2026;
   const practiceHrefs = ["/#practice-areas", "/#practice-areas", "/#practice-areas", "/#practice-areas", "/#practice-areas"];
-  const startHrefs = ["/intake", "/#how-it-works", "/#faq", FIRM.phoneHref];
+  const startHrefs = ["/intake", "/#how-it-works", "/support", FIRM.phoneHref];
 
   return (
     <footer className="site-footer">
@@ -18,7 +18,6 @@ export default function SiteFooter() {
           <div className="footer__brand">
             <div className="brand">
               <Image className="brand__logo" src="/wayco-logo.png" alt={FIRM.name} width={308} height={93} />
-              <span className="brand__sub">{t.footer.injuryLaw}</span>
             </div>
             <p style={{ marginTop: 14, maxWidth: "38ch" }}>{t.footer.tagline}</p>
             <p>

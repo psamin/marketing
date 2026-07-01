@@ -38,7 +38,7 @@ export const config = {
 
 export const FIRM = {
   name: "Wayco",
-  longName: "Wayco Injury Law",
+  longName: "Wayco",
   phone: "(516) 412-7361",
   phoneHref: "tel:+15164127361",
   email: "iqbol@wayco.ai",
@@ -54,7 +54,7 @@ export const FIRM = {
 // Atlanta) is named, with a real principal law office address.
 export const LEGAL = {
   // The law firm PC that is the advertiser and owns the representation.
-  firmEntity: "[LAW FIRM PC — e.g. \"Wayco Injury Law, P.C.\"]",
+  firmEntity: "[LAW FIRM PC — e.g. \"Wayco, P.C.\"]",
   responsibleAttorney: "[RESPONSIBLE ATTORNEY NAME, ESQ.]",
   officeAddress: "[PRINCIPAL LAW OFFICE ADDRESS]",
   admittedStates: "[STATE(S) OF ADMISSION]",

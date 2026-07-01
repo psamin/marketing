@@ -10,7 +10,7 @@ const DICT = {
   en: {
     lang: { en: "English", es: "Español", toggleAria: "Switch language" },
     header: {
-      injuryLaw: "Injury Law",
+      injuryLaw: "Wayco",
       nav: {
         practiceAreas: "Practice areas",
         howItWorks: "How it works",
@@ -27,7 +27,7 @@ const DICT = {
       titleAccent: "if you may have a claim",
       titleTail: ".",
       body:
-        "If you were hurt because of someone else’s negligence, you may be entitled to compensation for medical bills, lost wages, and pain and suffering. Wayco Injury Law reviews your case for free — and you pay nothing unless we win.",
+        "If you were hurt because of someone else’s negligence, you may be entitled to compensation for medical bills, lost wages, and pain and suffering. Wayco reviews your case for free — and you pay nothing unless we win.",
       ctaPrimary: "Start your free case review",
       call: "Call",
       badges: ["No fee unless we win*", "Free case review", "Fast response"],
@@ -90,13 +90,13 @@ const DICT = {
       call: "Call",
     },
     footer: {
-      injuryLaw: "Injury Law",
+      injuryLaw: "Wayco",
       tagline:
         "Injured? You may be owed compensation. Free case reviews for accident and injury victims. No fee unless we win (attorney fees only; case costs may apply).",
       practiceHead: "Practice areas",
       practiceLinks: ["Car accidents", "Slip & fall", "Medical malpractice", "Workplace injury", "Wrongful death"],
       startHead: "Get started",
-      startLinks: ["Start your case review", "How it works", "FAQ", "Call us"],
+      startLinks: ["Start your case review", "How it works", "Support", "Call us"],
       disclaimerLead:
         "In accordance with New York and other state ethics rules governing law firm websites, the contents of this site may be considered Attorney Advertising. The information here is for general informational purposes only and is not legal advice, and you should not act on it without consulting counsel. No attorney-client relationship is created by using this site or by submitting an intake form; a relationship is formed only by a signed written agreement. Prior results do not guarantee a similar outcome. Contacting ",
       disclaimerTail:
@@ -117,7 +117,7 @@ const DICT = {
       introLead:
         "Answer a few questions about your accident and injuries. There’s no cost and no obligation, and your information is used only to evaluate your potential claim. Prefer to talk? Call ",
       introTail: ".",
-      iframeTitle: "Wayco Injury Law intake form",
+      iframeTitle: "Wayco intake form",
       consentLead: "By submitting this form you agree to be contacted by ",
       consentMid:
         " about your potential claim at the phone number and email provided, including by automated dialing, prerecorded/AI voice, and text message. Consent is not a condition of any legal service; message and data rates may apply; reply STOP to opt out of texts. Submitting this form does ",
@@ -164,7 +164,7 @@ const DICT = {
   es: {
     lang: { en: "English", es: "Español", toggleAria: "Cambiar idioma" },
     header: {
-      injuryLaw: "Derecho de Lesiones",
+      injuryLaw: "Wayco",
       nav: {
         practiceAreas: "Áreas de práctica",
         howItWorks: "Cómo funciona",
@@ -181,7 +181,7 @@ const DICT = {
       titleAccent: "si podría tener un reclamo",
       titleTail: ".",
       body:
-        "Si resultó lesionado por la negligencia de otra persona, es posible que tenga derecho a una compensación por gastos médicos, salarios perdidos, y dolor y sufrimiento. Wayco Injury Law evalúa su caso gratis — y usted no paga nada a menos que ganemos.",
+        "Si resultó lesionado por la negligencia de otra persona, es posible que tenga derecho a una compensación por gastos médicos, salarios perdidos, y dolor y sufrimiento. Wayco evalúa su caso gratis — y usted no paga nada a menos que ganemos.",
       ctaPrimary: "Comience su evaluación gratuita",
       call: "Llame al",
       badges: ["Sin honorarios a menos que ganemos*", "Evaluación gratuita", "Respuesta rápida"],
@@ -244,13 +244,13 @@ const DICT = {
       call: "Llame al",
     },
     footer: {
-      injuryLaw: "Derecho de Lesiones",
+      injuryLaw: "Wayco",
       tagline:
         "¿Lesionado? Es posible que se le deba una compensación. Evaluaciones de casos gratuitas para víctimas de accidentes y lesiones. Sin honorarios a menos que ganemos (solo honorarios de abogado; pueden aplicarse costos del caso).",
       practiceHead: "Áreas de práctica",
       practiceLinks: ["Accidentes de auto", "Resbalones y caídas", "Negligencia médica", "Lesiones laborales", "Muerte por negligencia"],
       startHead: "Comenzar",
-      startLinks: ["Comience su evaluación", "Cómo funciona", "Preguntas", "Llámenos"],
+      startLinks: ["Comience su evaluación", "Cómo funciona", "Soporte", "Llámenos"],
       disclaimerLead:
         "De acuerdo con las reglas de ética de Nueva York y otros estados sobre los sitios web de firmas de abogados, el contenido de este sitio puede considerarse Publicidad de Abogados. La información aquí es solo para fines informativos generales y no constituye asesoramiento legal, y no debe actuar en base a ella sin consultar a un abogado. No se crea ninguna relación abogado-cliente por usar este sitio ni por enviar un formulario de admisión; la relación se forma únicamente mediante un acuerdo escrito firmado. Los resultados anteriores no garantizan un resultado similar. Contactar a ",
       disclaimerTail:
@@ -269,7 +269,7 @@ const DICT = {
       introLead:
         "Responda unas preguntas sobre su accidente y sus lesiones. No hay costo ni compromiso, y su información se usa solo para evaluar su posible reclamo. ¿Prefiere hablar? Llame al ",
       introTail: ".",
-      iframeTitle: "Formulario de admisión de Wayco Injury Law",
+      iframeTitle: "Formulario de admisión de Wayco",
       consentLead: "Al enviar este formulario, usted acepta que ",
       consentMid:
         " lo contacte sobre su posible reclamo al teléfono y correo proporcionados, incluso mediante marcación automática, voz pregrabada/IA y mensajes de texto. El consentimiento no es una condición para ningún servicio legal; pueden aplicarse tarifas de mensajes y datos; responda STOP para dejar de recibir textos. Enviar este formulario ",

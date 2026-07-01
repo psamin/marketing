@@ -5,8 +5,8 @@ import SiteFooter from "@/components/SiteFooter";
 import { FIRM } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Thank You — Your Case Review Is Started | Wayco Injury Law",
-  description: "We received your information. A member of the Wayco Injury Law team will be in touch.",
+  title: "Thank You — Your Case Review Is Started | Wayco",
+  description: "We received your information. A member of the Wayco team will be in touch.",
   robots: { index: false, follow: false },
 };
 

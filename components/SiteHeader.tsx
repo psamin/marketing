@@ -10,7 +10,7 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container site-header__row">
-        <Link href="/" className="brand" aria-label={`${FIRM.name} — ${t.header.injuryLaw}`}>
+        <Link href="/" className="brand" aria-label={FIRM.name}>
           <Image className="brand__logo" src="/wayco-logo.png" alt={FIRM.name} width={308} height={93} priority />
         </Link>
 
