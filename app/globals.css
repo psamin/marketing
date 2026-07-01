@@ -288,6 +288,8 @@ a { color: var(--accent); text-decoration: none; }
 .iw__done h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; line-height: 1.1; margin: 0 0 12px; }
 .iw__done p { color: var(--muted); margin: 0 0 24px; }
 
+.faq-title { font-family: var(--serif); font-weight: 400; font-size: 1.9rem; line-height: 1; letter-spacing: -0.01em; text-align: center; margin: 0 0 32px; color: var(--text); }
+
 @media (max-width: 860px) {
   .landing { padding: 40px 0 56px; }
   .landing__grid { grid-template-columns: 1fr; gap: 36px; }

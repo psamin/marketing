@@ -33,6 +33,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section" id="faq">
+        <div className="container" style={{ maxWidth: 760 }}>
+          <h2 className="faq-title">{t.faq.title}</h2>
+          <div className="faq">
+            {t.faq.items.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <SiteFooter />
     </>
   );

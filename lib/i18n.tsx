@@ -74,6 +74,7 @@ const DICT = {
       eyebrow: "Questions",
       title: "Frequently asked",
       items: [
+        { q: "How does it work?", a: "Answer a few questions about your accident — it takes a few minutes. Our team reviews your information at no cost, and a member of the firm follows up to discuss your claim. If the firm takes your case, we handle the insurance companies and pursue the compensation available under the law." },
         { q: "How much does it cost to hire Wayco?", a: "Nothing up front. We work on contingency — there is no fee unless we recover compensation for you. The case review is always free." },
         { q: "How do I know if I have a case?", a: "If someone else’s negligence caused your injury, you may have a claim. The fastest way to find out is the free case review — it takes a few minutes and there’s no obligation." },
         { q: "How long do I have to file a claim?", a: "Every state has a statute of limitations, and it can be shorter than you think. Don’t wait — start your review so an attorney can advise you on the deadline that applies. No deadline is protected unless and until you sign a written agreement." },
@@ -226,6 +227,7 @@ const DICT = {
       eyebrow: "Preguntas",
       title: "Preguntas frecuentes",
       items: [
+        { q: "¿Cómo funciona?", a: "Responda unas preguntas sobre su accidente — toma unos minutos. Nuestro equipo revisa su información sin costo y un miembro de la firma le contacta para hablar de su reclamo. Si la firma acepta su caso, nos encargamos de las compañías de seguros y buscamos la compensación disponible bajo la ley." },
         { q: "¿Cuánto cuesta contratar a Wayco?", a: "Nada por adelantado. Trabajamos por honorarios de contingencia — no hay cargo a menos que recuperemos una compensación para usted. La evaluación del caso siempre es gratis." },
         { q: "¿Cómo sé si tengo un caso?", a: "Si la negligencia de otra persona causó su lesión, es posible que tenga un reclamo. La forma más rápida de saberlo es la evaluación gratuita — toma unos minutos y no hay ningún compromiso." },
         { q: "¿Cuánto tiempo tengo para presentar un reclamo?", a: "Cada estado tiene un plazo de prescripción, y puede ser más corto de lo que piensa. No espere — comience su evaluación para que un abogado pueda asesorarle sobre el plazo que aplica. Ningún plazo queda protegido hasta que firme un acuerdo por escrito." },
