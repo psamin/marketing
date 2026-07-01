@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { isPublicPath } from "@/lib/auth-paths";
+import { isPublicPath } from "./lib/auth-paths";
 
 const AUTH_COOKIE = "wayco_auth";
 const AUTH_TOKEN = process.env.AUTH_TOKEN ?? "wc_ok_2026";
