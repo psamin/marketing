@@ -279,6 +279,12 @@ a { color: var(--accent); text-decoration: none; }
 .iw__field > span { display: block; font-size: 0.82rem; font-weight: 500; color: var(--muted); margin-bottom: 8px; }
 .iw__field input, .iw__field textarea { width: 100%; min-height: 48px; padding: 12px 14px; font-family: var(--sans); font-size: 1rem; color: var(--text); background: var(--bg); border: 1px solid var(--line-strong); border-radius: 10px; transition: border-color .15s ease, box-shadow .15s ease; }
 .iw__field textarea { min-height: auto; resize: vertical; line-height: 1.5; }
+/* iOS/Safari date inputs have an intrinsic width that overflows the card —
+   reset the native appearance and clamp width so they stay inside .iw. */
+.iw__field input { -webkit-appearance: none; appearance: none; min-width: 0; max-width: 100%; }
+.iw__field input[type="date"] { display: block; }
+.iw__field input[type="date"]::-webkit-date-and-time-value { text-align: left; margin: 0; }
+.iw__field input[type="date"]::-webkit-calendar-picker-indicator { margin-left: auto; }
 .iw__field input:focus, .iw__field textarea:focus { outline: none; border-color: #111111; box-shadow: 0 0 0 3px rgba(17,17,17,.12); }
 .iw__consent { display: flex; gap: 10px; align-items: flex-start; margin: 20px 0 0; font-size: 0.72rem; line-height: 1.6; color: var(--muted-2); cursor: pointer; }
 .iw__consent input { margin-top: 2px; width: 18px; height: 18px; flex-shrink: 0; accent-color: #111111; cursor: pointer; }
