@@ -1,9 +1,25 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { isPublicPath } from "./lib/auth-paths";
 
 const AUTH_COOKIE = "wayco_auth";
 const AUTH_TOKEN = process.env.AUTH_TOKEN ?? "wc_ok_2026";
+
+// Inlined (NOT imported) so the Edge middleware bundle stays self-contained —
+// importing a sibling module makes Next inject a Node shim that references
+// __dirname, which crashes the Edge runtime. Keep this in sync with the
+// unit-tested copy in lib/auth-paths.ts (same pre-launch gate: whole site behind
+// login; only the login flow + public APIs are open).
+function underPrefix(pathname: string, prefix: string): boolean {
+  return pathname === prefix || pathname.startsWith(prefix + "/");
+}
+function isPublicPath(pathname: string): boolean {
+  return (
+    underPrefix(pathname, "/login") ||
+    underPrefix(pathname, "/api/auth") ||
+    underPrefix(pathname, "/api/intake") ||
+    underPrefix(pathname, "/api/surveymonkey/webhook")
+  );
+}
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
