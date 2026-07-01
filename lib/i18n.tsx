@@ -8,7 +8,7 @@ export type Lang = "en" | "es";
 // components can index the active dictionary with the same keys.
 const DICT = {
   en: {
-    lang: { en: "English", es: "Spanish", toggleAria: "Switch language" },
+    lang: { en: "English", es: "Español", toggleAria: "Switch language" },
     header: {
       injuryLaw: "Injury Law",
       nav: {
