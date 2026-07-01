@@ -15,6 +15,9 @@ export default function SiteHeader() {
         </Link>
 
         <div className="header-cta">
+          <Link className="header-faq" href="/faq">
+            {t.header.faqs}
+          </Link>
           <a className="header-phone" href={FIRM.phoneHref}>
             {FIRM.phone}
             <span>{t.header.freeConsult}</span>

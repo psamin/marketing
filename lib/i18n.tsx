@@ -19,6 +19,7 @@ const DICT = {
       },
       freeConsult: "Free consultation 24/7",
       freeReview: "Free case review",
+      faqs: "FAQs",
     },
     hero: {
       eyebrow: "Free case review · No fee unless we win",
@@ -75,6 +76,7 @@ const DICT = {
       title: "Frequently asked",
       items: [
         { q: "How does it work?", a: "Three quick steps: answer a few questions, our team reviews them for free, and someone from the firm calls you back. If the firm takes your case, we deal with the insurance companies for you." },
+        { q: "When will I hear back?", a: "Soon. You can reach us any time — day or night — and a member of the team follows up as quickly as possible." },
         { q: "How much does it cost to hire Wayco?", a: "Nothing up front. You pay a fee only if we win — it comes out of what we recover for you. The review itself is always free." },
         { q: "How do I know if I have a case?", a: "If someone else caused your injury, you might. The quickest way to find out is the free review — a few minutes, no obligation." },
         { q: "How long do I have to file a claim?", a: "Every state sets a deadline, and it’s often shorter than people expect. Don’t wait — start your review and an attorney can tell you the deadline for your case. (Nothing is locked in until you sign an agreement.)" },
@@ -172,6 +174,7 @@ const DICT = {
       },
       freeConsult: "Consulta gratis 24/7",
       freeReview: "Evaluación gratuita",
+      faqs: "Preguntas",
     },
     hero: {
       eyebrow: "Evaluación gratuita del caso · Sin honorarios a menos que ganemos",
@@ -228,6 +231,7 @@ const DICT = {
       title: "Preguntas frecuentes",
       items: [
         { q: "¿Cómo funciona?", a: "Tres pasos rápidos: responda unas preguntas, nuestro equipo las revisa gratis y alguien de la firma le llama. Si la firma acepta su caso, tratamos con las aseguradoras por usted." },
+        { q: "¿Cuándo tendré respuesta?", a: "Pronto. Puede comunicarse con nosotros a cualquier hora — de día o de noche — y un miembro del equipo le responde lo antes posible." },
         { q: "¿Cuánto cuesta contratar a Wayco?", a: "Nada por adelantado. Usted paga honorarios solo si ganamos — salen de lo que recuperemos para usted. La evaluación siempre es gratis." },
         { q: "¿Cómo sé si tengo un caso?", a: "Si otra persona causó su lesión, es posible. La forma más rápida de saberlo es la evaluación gratis — unos minutos, sin compromiso." },
         { q: "¿Cuánto tiempo tengo para presentar un reclamo?", a: "Cada estado fija un plazo, y suele ser más corto de lo que la gente cree. No espere — comience su evaluación y un abogado puede decirle el plazo de su caso. (Nada queda fijado hasta que firme un acuerdo.)" },

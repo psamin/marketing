@@ -124,6 +124,8 @@ a { color: var(--accent); text-decoration: none; }
 .nav a:hover { color: var(--text); }
 .header-cta { display: flex; align-items: center; gap: 18px; }
 .header-cta .btn { padding: 9px 17px; font-size: 0.88rem; white-space: nowrap; }
+.header-faq { font-family: var(--sans); font-size: 0.9rem; font-weight: 500; color: var(--muted); text-decoration: none; white-space: nowrap; transition: color .15s ease; }
+.header-faq:hover { color: var(--text); }
 .header-phone { font-weight: 500; color: var(--text); white-space: nowrap; font-size: 0.92rem; }
 .header-phone span { display: block; font-family: var(--sans); font-size: 0.68rem; font-weight: 400; color: var(--muted-2); letter-spacing: 0; text-transform: none; margin-top: 1px; }
 @media (max-width: 1080px) { .header-phone { display: none; } }
