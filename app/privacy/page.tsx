@@ -51,16 +51,18 @@ export default function PrivacyPage() {
         [Confirm express-written-consent wording and record-keeping with counsel.]
       </p>
 
-      <h2>4. How we share it</h2>
+      <h2>4. How we store and share it</h2>
       <p>
-        We share your information with the Firm’s attorneys and staff evaluating your
-        claim, and with service providers that help us operate (hosting, communications,
-        analytics) — who are not permitted to use it for any purpose other than
-        providing services to us or to you. <strong>We do not sell your personal
-        information for money.</strong> Some routine online activity (e.g., analytics or
-        advertising cookies) may be considered a “sale” or “share” under certain state
-        laws; where it is, you may opt out. [Insert named subprocessors + cookie
-        disclosures — counsel to confirm.]
+        Your information is stored on <strong>Wayco’s own internal systems</strong> (our
+        secure case-management dashboard) and used only to evaluate and handle your
+        claim. <strong>We are not a lead marketplace — we do not sell or resell your
+        information.</strong> We share it with the Firm’s attorneys and staff evaluating
+        your claim, and with service providers that help us operate (hosting,
+        communications, analytics), who may not use it for any other purpose. Some
+        routine online activity (analytics or advertising cookies) may be considered a
+        “sale” or “share” under certain state laws; where it is, you may opt out.
+        [Insert named subprocessors, cookie disclosures, and data-security measures —
+        counsel to confirm.]
       </p>
 
       <h2>5. AI and your data</h2>
